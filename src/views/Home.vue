@@ -6,6 +6,7 @@
 
 <script>
 import Input from "../components/Input";
+const shortid = require("shortid");
 export default {
   name: "Home",
   components: {
@@ -14,6 +15,7 @@ export default {
   data() {
     return {
       tarea: {
+        id: "",
         nombre: "",
         curso: [],
         estado: "",
@@ -29,10 +31,13 @@ export default {
         return;
       }
       console.log("campos llenados");
-      //enviar datos
-      console.log(this.tarea);
+      //generamos id y guardamos
+      this.tarea.id = shortid.generate();
+      //enviar datos a vuex
+      console.log("tarea", this.tarea);
       //retear form
       this.tarea = {
+        id: "",
         nombre: "",
         curso: [],
         estado: "",
