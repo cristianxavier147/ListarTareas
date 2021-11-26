@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <form>
+    <Input :tarea="tarea" />
+  </form>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Input from "../components/Input";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    Input,
+  },
+  data() {
+    return {
+      tarea: {
+        nombre: "",
+        curso: [],
+        estado: "",
+        numero: 0,
+      },
+    };
+  },
+};
 </script>
