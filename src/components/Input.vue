@@ -44,7 +44,14 @@
       ></v-text-field>
     </v-container>
     <v-container>
-      <v-btn block color="primary" elevation="2">Procesar Información</v-btn>
+      <v-btn
+        type="submit"
+        :disabled="disabledBtn"
+        block
+        color="primary"
+        elevation="2"
+        >Procesar Información</v-btn
+      >
     </v-container>
     <p>{{ tarea }}</p>
   </v-app>
@@ -55,6 +62,11 @@ export default {
   name: "Input",
   props: {
     tarea: Object,
+  },
+  computed: {
+    disabledBtn() {
+      return this.tarea.nombre.trim() === "" ? true : false;
+    },
   },
 };
 </script>
