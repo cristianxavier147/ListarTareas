@@ -1,11 +1,9 @@
 <template>
   <v-app>
-    <v-main>
-      <Navbar />
-      <v-container>
-        <router-view />
-      </v-container>
-    </v-main>
+    <Navbar />
+    <v-container>
+      <router-view />
+    </v-container>
   </v-app>
 </template>
 

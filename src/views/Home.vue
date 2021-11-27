@@ -1,16 +1,22 @@
 <template>
-  <form @submit.prevent="procesarForm">
-    <Input :tarea="tarea" />
-  </form>
+  <v-main>
+    <form @submit.prevent="procesarForm">
+      <Input :tarea="tarea" />
+    </form>
+    <ListarTarea />
+  </v-main>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import Input from "../components/Input";
+import ListarTarea from "../components/LIstarTarea";
 const shortid = require("shortid");
 export default {
   name: "Home",
   components: {
     Input,
+    ListarTarea,
   },
   data() {
     return {
@@ -25,6 +31,7 @@ export default {
   },
 
   methods: {
+    ...mapActions(["setTarea"]),
     procesarForm() {
       if (this.tarea.nombre.trim() === "") {
         console.log("falta llenar campos");
@@ -34,7 +41,7 @@ export default {
       //generamos id y guardamos
       this.tarea.id = shortid.generate();
       //enviar datos a vuex
-      console.log("tarea", this.tarea);
+      this.setTarea(this.tarea);
       //retear form
       this.tarea = {
         id: "",
