@@ -22,6 +22,16 @@
             <v-btn depressed color="error" @click="deleteTarea(item.id)"
               >Eliminar</v-btn
             >
+            <router-link
+              :to="{
+                name: 'Editar',
+                params: {
+                  id: item.id,
+                },
+              }"
+            >
+              <v-btn depressed color="warning" class="ml-2">Editar</v-btn>
+            </router-link>
           </td>
         </tr>
       </tbody>
