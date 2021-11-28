@@ -53,7 +53,6 @@
         >Procesar Información</v-btn
       >
     </v-container>
-    <p>{{ tarea }}</p>
   </v-app>
 </template>
 
